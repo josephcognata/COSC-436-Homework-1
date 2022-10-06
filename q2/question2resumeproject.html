@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta data -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="language" content="English">
+    <meta name="title" content="Joseph Cognata's Resume">
+    <meta name="author" content="Joseph Cognata">
+    <meta name="keywords" content="Resume, Software Developer Resume, Technology Resume, Computer Science Resume, Computer Science Student">
+  
+    <!-- Title of the page -->
+    <title>Joseph Cognata</title>
+
+    <!-- Styling for the webpage -->
+    <style>
+        body {
+            background-color: #4c9e9d;
+            font-family: "Arial", sans-serif;
+        }
+        .heading {
+            font-family: "Cambria", sans-serif;
+            border: solid;
+            margin-bottom: 5px;
+        }
+        .heading h1 {
+            margin-top: 0;
+            margin-bottom: 0;
+            padding-bottom: 10px;
+            font-size: 50px;
+            background-color: lightgrey;
+        }
+        .section {
+            border: solid;
+            margin-bottom: 5px;
+            background-color: lightyellow;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        .section h2 {
+            border-bottom: solid;
+        }
+        .section img {
+            max-width: 100%;
+            max-height: 50vh;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            border: solid;
+        }
+        .code-section {
+            border: solid;
+            margin-bottom: 5px;
+            background-color: rgb(82, 73, 73);
+            padding-left: 10px;
+            padding-right: 10px;
+            color: white;
+
+        }
+    </style>
+</head>
+<!-- Body containing the contents of the webpage -->
+<body>
+    <!-- Header containing my name and information -->
+    <div class="heading">
+        <h1 style="text-align: center">Project: Cutest Paw</h1>
+    </div>
+
+    <!-- Description section of my resume -->
+    <div class="section">
+        <h2>Description</h2>
+            <p>This project was a pet focused social media website where you could post images and 
+                talk about your pets. Create profile for you and your pets 
+                and upload an avatar, images, status updates, bio and likes and dislikes. 
+                It also gave you the ability to add friends on the website and comment on 
+                their activities. For the project we use the MERN stack which included MongoDB for 
+                the database, Express and Node JS for the backend, and React JS for the front end. 
+                The website is hosted at <a href="https://cutestpaw.herokuapp.com/">cutestpaw.herokuapp.com</a></p>
+        <img src="images/cutestpaw.png" alt="CutestPaw Website">
+        <br>
+    </div>
+
+    <!-- Team section of my resume -->
+    <div class="section">
+        <h2>Team Mercury</h2>
+            <h4>Joseph Cognata</h4>
+            <p>Hello, My name is Joseph Cognata and I'm the deputy leader for this 
+                project. I am 20 years old and this is my 2nd year at EMU studying 
+                in the computer science major. I hope to graduate by the end of the 
+                2022 year! I am inquisitive, energetic, and ready to work in the field. 
+                My vision is to leverage my development skills and get a well paying remote 
+                job.</p>
+            <h4>Willian Rathbun</h4>
+            <p>My name is William Rathbun. I'm a 21 year old computer science major, team 
+                leader for this project, and full time student in my senior year at EMU. 
+                In my free time I like to play video games and travel.</p>
+            <h4>Fatema Chandoo</h4>
+            <p>Hello I am Fatema Chandoo and I am a Computer Science Student at EMU and 
+                I am in my senior year. I would like to work in an IT firm because I have 
+                always liked solving problem. I would love to travel the world.</p>
+            <h4>Kanza Mateen</h4>
+            <p>Hi, my name is Kanza, I am 25 years old. My major is computer science, 
+                its my lest second to last semester. In my free time I like to draw, 
+                I enjoy music, travelling and working out. I hope to learn something 
+                new this semester as well as getting to work with the team.</p>
+            <h4>Mitchell Smith</h4>
+            <p>My name is Mitchell Smith and I'm 21 years old. This is my fourth year 
+                at EMU studying computer science applied. I'm hopefully going to 
+                graduate after the upcoming summer semester. My goal after my time at 
+                EMU is to find a job nearby or remote related to my feild of study.</p>
+        <br>
+    </div>
+
+    <!-- Course section of my resume -->
+    <div class="code-section">
+        <h2>Code From Project</h2>
+            <h4>Some Front End Code: </h4>
+            <pre>
+                import React, { Component } from 'react';
+                import { BrowserRouter, Route, Routes } from 'react-router-dom';
+                import { ReactSession } from 'react-client-session';
+                    
+                import Feed from './pages/feed.js';
+                import NewPost from './pages/newPost.js';
+                import Register from './pages/register.js';
+                import Login from './pages/login.js';
+                import UserProfileWrapper from './components/getUsername';
+                import PostPageWrapper from './components/getPost';
+                import EditProile from './pages/editProfile';
+                import Search from './pages/search';
+                import Explore from './pages/explore';
+                import Notifications from './pages/notifications';
+                import AccountSettings from './pages/accountSettings'
+                    
+                ReactSession.setStoreType('localStorage');
+                class App extends Component {
+                    render() {
+                    return (      
+                        &lt;BrowserRouter>
+                        &lt;div style={{marginTop: "40px"}}>
+                        &lt;Routes>
+                            &lt;Route path="/" element={Login />}/>
+                            &lt;Route path="/newpost" element = {NewPost />}/>
+                            &lt;Route path="/feed" element={Feed />}/>
+                            &lt;Route path="/search" element={Search />}/>
+                            &lt;Route path="/signup" element={Register />}/>
+                            &lt;Route path="/user/:username" element={UserProfileWrapper />}/>
+                                {/* Get a list of all posts from the db. Loop over list. Render the following route for each post. */}
+                            &lt;Route path="/post/:postId" element={PostPageWrapper />}/>
+                            &lt;Route path="/editProfile" element={EditProile />}/>
+                            &lt;Route path="/explore" element={Explore />}/>
+                            &lt;Route path="/notifications" element={Notifications />}/>
+                            &lt;Route path="/settings" element={AccountSettings />}/>
+                        &lt;/Routes>
+                
+                        &lt;/div> 
+                        &lt;/BrowserRouter>
+                    );
+                    }
+                }
+                    
+                export default App;</pre>
+
+            <h4>Some Back End Code: </h4>
+            <pre>
+                var express = require("express");
+                const app = express();
+                var MongoClient = require('mongodb').MongoClient;
+                const mongoose = require("mongoose");
+                
+                //connect to mongoDB
+                const uri = "mongodb+srv://gtcolling:test1234@cluster0.w0d7u.mongodb.net/gameDB?retryWrites=true&w=majority";
+                mongoose.connect(uri,{ useNewUrlParser: true, useUnifiedTopology: true})
+                    .then(() => console.log("Database Connected Successfully"))
+                    .catch(err => console.log(err));</pre>
+        <br>
+    </div>
+
+</body>
+</html>
